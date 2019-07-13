@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BidAskCore\BidAskCore.csproj">
+      <Project>{5B7ADDCA-6AEB-4F23-AD2C-8951A3299B91}</Project>
+      <Name>BidAskCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

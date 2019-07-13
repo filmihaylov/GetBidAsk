@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BidAskCore.DTOs
 {
-    class CurrencyDto
+    public class CurrencyDto
     {
-        public decimal USD { get; set; }
-        public decimal EUR { get; set; }
+        public decimal? USD { get; set; }
+        public decimal? EUR { get; set; }
     }
 }

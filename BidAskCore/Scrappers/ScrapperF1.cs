@@ -1,4 +1,6 @@
 ﻿using BidAskCore.DTOs;
+using BidAskCore.Exceptions;
+using BidAskCore.Scrappers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BidAskCore
 {
-    public class ScrapperF1
+    public class ScrapperF1 : IScrapper
     {
         private string URL = "https://1forge.com/forex-data-api/currency-pair-list";
         private CurrencyDto currency = new CurrencyDto();
@@ -24,8 +26,16 @@ namespace BidAskCore
                 
                 driver.Navigate().GoToUrl(this.URL);
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-                this.currency.EUR = this.GetEUR(driver);
-                this.currency.USD = this.GetUSD(driver);
+                try
+                {
+                    this.currency.EUR = this.GetEUR(driver);
+                    this.currency.USD = this.GetUSD(driver);
+                }
+                catch(Exception ex)
+                {
+                    // log ex
+                    throw new FailedScrappingException("F1");
+                }
             }
 
             return this.currency;

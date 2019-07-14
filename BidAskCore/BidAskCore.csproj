@@ -87,8 +87,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\CurrencyDto.cs" />
-    <Compile Include="ScrapperF1.cs" />
-    <Compile Include="ScrapperRT.cs" />
+    <Compile Include="Exceptions\FailedScrappingException.cs" />
+    <Compile Include="Scrappers\IScrapper.cs" />
+    <Compile Include="Scrappers\ScrapperF1.cs" />
+    <Compile Include="Scrappers\ScrapperRT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

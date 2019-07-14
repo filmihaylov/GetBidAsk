@@ -1,4 +1,6 @@
 ﻿using BidAskCore.DTOs;
+using BidAskCore.Exceptions;
+using BidAskCore.Scrappers;
 using HtmlAgilityPack;
 using ScrapySharp.Extensions;
 using ScrapySharp.Network;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BidAskCore
 {
-    public class ScrapperRT
+    public class ScrapperRT : IScrapper
     {
         private string URL = "https://www.reuters.com/finance/currencies/quote?srcCurr=EUR&destCurr=USD";
         private CurrencyDto currency = new CurrencyDto();
@@ -19,23 +21,30 @@ namespace BidAskCore
 
         public CurrencyDto ExtractEURUSDData()
         {
-            WebPage page = this.GetPage();
-            this.currency.EUR = this.GetEUR(page);
-            this.currency.USD = this.GetUSD(page);
+            IEnumerable<HtmlNode> nodes = this.GetNodes();
+            try
+            {
+                this.currency.EUR = this.GetEUR(nodes);
+                this.currency.USD = this.GetUSD(nodes);
+            }
+            catch(Exception ex)
+            {
+                //log ex
+                throw new FailedScrappingException("RT");
+            }
 
             return this.currency;
         }
 
-        private WebPage GetPage()
+        private IEnumerable<HtmlNode> GetNodes()
         {
             WebPage PageResult = this.Browser.NavigateToPage(new Uri(this.URL));
-            return PageResult;
+            IEnumerable<HtmlNode> nodes = PageResult.Html.CssSelect(".bidAsk div");
+            return nodes;
         }
 
-        private decimal? GetEUR(WebPage PageResult)
+        private decimal? GetEUR(IEnumerable<HtmlNode> nodes)
         {
-            IEnumerable<HtmlNode> nodes = PageResult.Html.CssSelect(".bidAsk div");
-
             foreach(HtmlNode node in nodes)
             {
                 HtmlNode child = node.PreviousSibling;
@@ -49,10 +58,8 @@ namespace BidAskCore
             return null;
         }
 
-        private decimal? GetUSD(WebPage PageResult)
+        private decimal? GetUSD(IEnumerable<HtmlNode> nodes)
         {
-            IEnumerable<HtmlNode> nodes = PageResult.Html.CssSelect(".bidAsk div");
-
             foreach (HtmlNode node in nodes)
             {
                 HtmlNode child = node.PreviousSibling;

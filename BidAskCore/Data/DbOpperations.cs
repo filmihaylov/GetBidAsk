@@ -27,13 +27,15 @@ namespace BidAskCore.Data
 
         public void DeleteDataOderThanDays(int days)
         {
-            db.Currency.RemoveRange(db.Currency.Where(x => (DateTime.Now - x.TimeStamp).Days > days));
-            db.SaveChanges();
+            // arithmetic not supported for now
+            //db.Currency.RemoveRange(db.Currency.Where(x => (DateTime.Now - x.TimeStamp).Days > days));
+            //db.SaveChanges();
+            db.Database.ExecuteSqlCommand($"delete from Currencies where TimeStamp < date('now','-{days} days');");
         }
 
         public void DeleteAllRows()
         {
-            db.Database.ExecuteSqlCommand("TRUNCATE TABLE [Currency]");
+            db.Database.ExecuteSqlCommand("delete from Currencies");
         }
     }
 }

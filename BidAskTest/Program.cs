@@ -1,4 +1,5 @@
 ﻿using BidAskCore;
+using BidAskCore.Data;
 using BidAskCore.DTOs;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,40 @@ namespace BidAskTest
         static void Main(string[] args)
         {
 
-            ScrapperF1 test = new ScrapperF1();
+            DbOpperations db = new DbOpperations();
 
-            CurrencyDto dto = test.ExtractEURUSDData();
+            CurrencyDto dto = new CurrencyDto()
+            {
+                EUR = 2,
+                USD = 3.4m
+            };
+
+            Currency test = new Currency();
+
+            test.CurrencyData = dto;
+
+            test.Source = "fdfd";
+
+            test.TimeStamp = DateTime.Now;
 
 
-            Console.WriteLine("EUR" + dto.EUR);
-            Console.WriteLine("USD" + dto.USD);
+            db.InsertCurrency(test);
+
+
+            db.DeleteDataOderThanDays(5);
+
+            Currency gg = db.GetLastCurrency();
+
+
+            Console.WriteLine(gg.CurrencyData.EUR);
+            Console.WriteLine(gg.CurrencyData.USD);
+
+
+            db.DeleteAllRows();
 
             Console.ReadKey();
+
+
 
         }
     }

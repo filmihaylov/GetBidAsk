@@ -11,20 +11,17 @@ namespace BidAskTest
     class Program
     {
         static void Main(string[] args)
-        { 
+        {
 
-           ScrapperRT test = new ScrapperRT();
+            ScrapperF1 test = new ScrapperF1();
 
-           CurrencyDto dto = test.ExtractEURUSDData();
+            CurrencyDto dto = test.ExtractEURUSDData();
 
 
-            Console.WriteLine("EUR"+dto.EUR);
-            Console.WriteLine("ÜSD"+dto.USD);
+            Console.WriteLine("EUR" + dto.EUR);
+            Console.WriteLine("USD" + dto.USD);
 
             Console.ReadKey();
-
-
-
 
         }
     }

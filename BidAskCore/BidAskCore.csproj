@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\CurrencyDto.cs" />
+    <Compile Include="ScrapperF1.cs" />
     <Compile Include="ScrapperRT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

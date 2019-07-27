@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BidAskCore.Scheduler;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,10 +20,17 @@ namespace BidAskService
 
         protected override void OnStart(string[] args)
         {
+            SchedulerWrapper sheduler = new SchedulerWrapper();
+            sheduler.StartJobs();
         }
 
         protected override void OnStop()
         {
+
+        }
+        public void onDebug()
+        {
+            OnStart(null);
         }
     }
 }

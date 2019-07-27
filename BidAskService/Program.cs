@@ -14,6 +14,13 @@ namespace BidAskService
         /// </summary>
         static void Main()
         {
+            #if DEBUG
+            //While debugging this section is used.
+            Service1 myService = new Service1();
+            myService.onDebug();
+            System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
+            #endif
+
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {

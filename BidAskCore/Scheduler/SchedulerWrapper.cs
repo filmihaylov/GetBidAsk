@@ -1,6 +1,7 @@
 ﻿using BidAskCore.Data;
 using BidAskCore.DTOs;
 using Hangfire;
+using Hangfire.MemoryStorage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +12,28 @@ namespace BidAskCore.Scheduler
 {
     public class SchedulerWrapper
     {
+
+        public SchedulerWrapper()
+        {
+            JobStorage.Current = GlobalConfiguration.Configuration.UseMemoryStorage();
+            var server = new BackgroundJobServer();
+            server.Start();
+        }
         public void StartJobs()
         {
+
             this.StartDataCollectionJob();
             this.ClearOldDataJob();
         }
 
-        private void StartDataCollectionJob()
+        public void StartDataCollectionJob()
         {
             RecurringJob.AddOrUpdate(
                        () => this.StartDataCollection(),
-                       Cron.MinuteInterval(10));
+                       Cron.MinuteInterval(1));
         }
 
-        private void StartDataCollection()
+        public void StartDataCollection()
         {
             DbOpperations db = new DbOpperations();
             CurrencyDto dto = new CurrencyDto();
@@ -60,12 +69,12 @@ namespace BidAskCore.Scheduler
             db.InsertCurrency(currency);
         }
 
-        private void ClearOldDataJob()
+        public void ClearOldDataJob()
         {
             DbOpperations db = new DbOpperations();
             RecurringJob.AddOrUpdate(
                         () => db.DeleteDataOderThanDays(4),
-                        Cron.DayInterval(5));
+                        Cron.MinuteInterval(2));
         }
 
     }

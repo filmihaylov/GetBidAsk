@@ -13,6 +13,7 @@ namespace BidAskService
 {
     public partial class Service1 : ServiceBase
     {
+        SchedulerWrapper sheduler;
         public Service1()
         {
             InitializeComponent();
@@ -20,13 +21,13 @@ namespace BidAskService
 
         protected override void OnStart(string[] args)
         {
-            SchedulerWrapper sheduler = new SchedulerWrapper();
-            sheduler.StartJobs();
+            this.sheduler = new SchedulerWrapper();
+            this.sheduler.StartJobs();
         }
 
         protected override void OnStop()
         {
-
+            this.sheduler.StopJobs();
         }
         public void onDebug()
         {

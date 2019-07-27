@@ -12,18 +12,23 @@ namespace BidAskCore.Scheduler
 {
     public class SchedulerWrapper
     {
-
+        private BackgroundJobServer server;
         public SchedulerWrapper()
         {
             JobStorage.Current = GlobalConfiguration.Configuration.UseMemoryStorage();
-            var server = new BackgroundJobServer();
-            server.Start();
+            this.server = new BackgroundJobServer();
+            this.server.Start();
         }
         public void StartJobs()
         {
 
             this.StartDataCollectionJob();
             this.ClearOldDataJob();
+        }
+
+        public void StopJobs()
+        {
+            this.server.Dispose();
         }
 
         public void StartDataCollectionJob()

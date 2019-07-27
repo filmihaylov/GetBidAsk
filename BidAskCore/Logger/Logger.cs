@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BidAskCore.Logger
 {
-    class Logger
+    public class Logger
     {
+
     }
 }

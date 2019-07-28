@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
@@ -22,7 +23,15 @@ namespace BidAskService
         }
         public void start()
         {
-            var context = web.GetContext();
+            while (true)
+            {
+                ThreadPool.QueueUserWorkItem(Process, web.GetContext());
+            }
+        }
+        void Process(object o)
+        {
+
+            var context = o as HttpListenerContext;
             var response = context.Response;
             string responseString = getLastCurrency();
             var buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
@@ -30,7 +39,6 @@ namespace BidAskService
             var output = response.OutputStream;
             output.Write(buffer, 0, buffer.Length);
             output.Close();
-
         }
         public void stop()
         {

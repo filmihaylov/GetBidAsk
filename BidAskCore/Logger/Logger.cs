@@ -10,10 +10,12 @@ namespace BidAskCore.Logger
     public class Logger
     {
         private string pathToFile;
+        private Telegram.Telegram telegram;
         public Logger()
         {
             this.pathToFile = "logFile";
             this.createLoggingFile(this.pathToFile);
+            this.telegram = new Telegram.Telegram();
         }
         public void Log(Exception ex)
         {
@@ -22,6 +24,8 @@ namespace BidAskCore.Logger
             {
                 sw.WriteLine(ex.Message);
             }
+
+            this.telegram.sendMessage(ex.Message);
         } 
 
         private void createLoggingFile(string logFile)

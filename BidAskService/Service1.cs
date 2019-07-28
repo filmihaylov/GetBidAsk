@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BidAskService
@@ -24,13 +25,16 @@ namespace BidAskService
         protected override void OnStart(string[] args)
         {
             this.sheduler = new SchedulerWrapper();
-            //this.sheduler.StartJobs();
-            this.server.start();
+            this.sheduler.StartJobs();
+            Task.Run(() =>
+            {
+                this.server.start();
+            });
         }
 
         protected override void OnStop()
         {
-            //this.sheduler.StopJobs();
+            this.sheduler.StopJobs();
             this.server.stop();
         }
         public void onDebug()

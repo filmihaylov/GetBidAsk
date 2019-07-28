@@ -16,6 +16,7 @@ namespace BidAskCore
     {
         private string URL = "https://1forge.com/forex-data-api/currency-pair-list";
         private CurrencyDto currency = new CurrencyDto();
+        private Logger.Logger logger = new Logger.Logger();
 
         public CurrencyDto ExtractEURUSDData()
         {
@@ -33,7 +34,7 @@ namespace BidAskCore
                 }
                 catch(Exception ex)
                 {
-                    // log ex
+                    logger.Log(ex);
                     throw new FailedScrappingException("F1");
                 }
             }

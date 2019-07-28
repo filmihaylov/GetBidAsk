@@ -111,6 +111,8 @@
     <Compile Include="Data\CurrencyContext.cs" />
     <Compile Include="Data\DbOpperations.cs" />
     <Compile Include="DTOs\CurrencyDto.cs" />
+    <Compile Include="Exceptions\DataBaseClearAllException.cs" />
+    <Compile Include="Exceptions\FailedCurrencySaveException.cs" />
     <Compile Include="Exceptions\FailedScrappingException.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="Scheduler\SchedulerWrapper.cs" />

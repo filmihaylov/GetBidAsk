@@ -13,6 +13,7 @@ namespace BidAskCore.Scheduler
     public class SchedulerWrapper
     {
         private BackgroundJobServer server;
+        private Logger.Logger logger = new Logger.Logger();
         public SchedulerWrapper()
         {
             JobStorage.Current = GlobalConfiguration.Configuration.UseMemoryStorage();
@@ -51,15 +52,17 @@ namespace BidAskCore.Scheduler
                 dto = rtScrapper.ExtractEURUSDData();
                 source = "RT";
             }
-            catch
+            catch(Exception ex)
             {
+                this.logger.Log(ex);
                 try
                 {
                     dto = f1Scrapper.ExtractEURUSDData();
                     source = "F1";
                 }
-                catch
+                catch(Exception exInner)
                 {
+                    this.logger.Log(exInner);
                     dto = null;
                 }
             }

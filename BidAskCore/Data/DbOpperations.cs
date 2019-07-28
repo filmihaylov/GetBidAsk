@@ -1,13 +1,18 @@
-﻿using System;
+﻿using BidAskCore.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BidAskCore.Data
 {
     public class DbOpperations
     {
+        private static int failedAttempts = 0;
+        private Logger.Logger logger = new Logger.Logger();
+
         private CurrencyContext db;
         public DbOpperations()
         {
@@ -16,8 +21,23 @@ namespace BidAskCore.Data
 
         public void InsertCurrency(Currency entity)
         {
-            db.Currency.Add(entity);
-            db.SaveChanges();
+            try
+            {
+                db.Currency.Add(entity);
+                db.SaveChanges();
+                failedAttempts = 0;
+            }
+            catch(Exception ex)
+            {
+                this.logger.Log(ex);
+                this.logger.Log(new FailedCurrencySaveException());
+                if (failedAttempts >= 3)
+                {
+                    this.DeleteAllRows();
+                    this.logger.Log(new DataBaseClearAllException());
+                }
+                Interlocked.Add(ref failedAttempts, 1);
+            }
         }
 
         public Currency GetLastCurrency()

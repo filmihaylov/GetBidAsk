@@ -17,6 +17,7 @@ namespace BidAskCore
         private string URL = "https://www.reuters.com/finance/currencies/quote?srcCurr=EUR&destCurr=USD";
         private CurrencyDto currency = new CurrencyDto();
         private ScrapingBrowser Browser = new ScrapingBrowser();
+        private Logger.Logger logger = new Logger.Logger();
 
 
         public CurrencyDto ExtractEURUSDData()
@@ -29,7 +30,7 @@ namespace BidAskCore
             }
             catch(Exception ex)
             {
-                //log ex
+                this.logger.Log(ex);
                 throw new FailedScrappingException("RT");
             }
 

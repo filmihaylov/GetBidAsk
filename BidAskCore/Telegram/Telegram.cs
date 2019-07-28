@@ -12,12 +12,19 @@ namespace BidAskCore.Telegram
         TelegramBotClient bot;
         public Telegram()
         {
-            this.bot = new TelegramBotClient("your api key here");
+            this.bot = new TelegramBotClient("");
         }
 
         public async void sendMessage(string message)
         {
-            await this.bot.SendTextMessageAsync("244146002", message);
+            try
+            {
+                await this.bot.SendTextMessageAsync("244146002", message);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

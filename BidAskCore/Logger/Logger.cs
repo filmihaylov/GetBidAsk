@@ -25,7 +25,8 @@ namespace BidAskCore.Logger
                 sw.WriteLine(ex.Message);
             }
 
-            this.telegram.sendMessage(ex.Message);
+                this.telegram.sendMessage(ex.Message);
+
         } 
 
         private void createLoggingFile(string logFile)

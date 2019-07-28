@@ -35,6 +35,7 @@ namespace BidAskCore.Data
                 {
                     this.DeleteAllRows();
                     this.logger.Log(new DataBaseClearAllException());
+                    Interlocked.Exchange(ref failedAttempts, 0);
                 }
                 Interlocked.Add(ref failedAttempts, 1);
             }

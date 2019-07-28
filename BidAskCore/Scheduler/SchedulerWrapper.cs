@@ -36,7 +36,7 @@ namespace BidAskCore.Scheduler
         {
             RecurringJob.AddOrUpdate(
                        () => this.StartDataCollection(),
-                       Cron.MinuteInterval(1));
+                       Cron.MinuteInterval(15));
         }
 
         public void StartDataCollection()
@@ -82,7 +82,7 @@ namespace BidAskCore.Scheduler
             DbOpperations db = new DbOpperations();
             RecurringJob.AddOrUpdate(
                         () => db.DeleteDataOderThanDays(4),
-                        Cron.MinuteInterval(2));
+                        Cron.DayInterval(2));
         }
 
     }

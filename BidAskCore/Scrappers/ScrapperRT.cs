@@ -21,10 +21,10 @@ namespace BidAskCore
 
 
         public CurrencyDto ExtractEURUSDData()
-        {
-            IEnumerable<HtmlNode> nodes = this.GetNodes();
+        {          
             try
             {
+                IEnumerable<HtmlNode> nodes = this.GetNodes();
                 this.currency.EUR = this.GetEUR(nodes);
                 this.currency.USD = this.GetUSD(nodes);
             }

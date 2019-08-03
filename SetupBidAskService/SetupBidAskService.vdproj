@@ -1757,6 +1757,62 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_2C22A0936E0649698648A518D950D748"
+            {
+            "Name" = "8:Primary output from BidAskService (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_9F0D10E45AA34A30954A2E68067A71F0"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_CF2881C8_A12E_421F_B612_5BDE4E7D3B45"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_3C74B7B9940142FBADE7C8AD16A5951A"
+            {
+            "Name" = "8:Primary output from BidAskService (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_9F0D10E45AA34A30954A2E68067A71F0"
+            "FileType" = "3:2"
+            "InstallAction" = "3:3"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_11598C7C_63F9_4430_9CDC_68AB813C3C0B"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_4C920927963E4F4BA4683BFFED6C5353"
+            {
+            "Name" = "8:Primary output from BidAskService (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_9F0D10E45AA34A30954A2E68067A71F0"
+            "FileType" = "3:2"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_90B5A4DB_F9A0_4B05_9CBC_A31A1775A99C"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_C8DB72351A4E4690ADEE43C4E3168798"
+            {
+            "Name" = "8:Primary output from BidAskService (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_9F0D10E45AA34A30954A2E68067A71F0"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_FE0DBBD0_F88A_41E6_B8A4_856140D6307F"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -5774,7 +5830,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SetupBidAskService"
         "ProductCode" = "8:{2BD4AA8B-F6E1-4BAA-91D9-2EDDFB8F0427}"
-        "PackageCode" = "8:{DE6B6312-C255-4312-AFE5-70437134F1C8}"
+        "PackageCode" = "8:{05FC85A8-5486-49E5-9B4B-CD9BFAE2951E}"
         "UpgradeCode" = "8:{E886AADD-1230-4BB6-87AB-46D8F798834D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

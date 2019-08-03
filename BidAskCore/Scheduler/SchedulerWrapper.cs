@@ -81,8 +81,8 @@ namespace BidAskCore.Scheduler
         {
             DbOpperations db = new DbOpperations();
             RecurringJob.AddOrUpdate(
-                        () => db.DeleteDataOderThanDays(4),
-                        Cron.DayInterval(2));
+                        () => db.DeleteDataOderThanDays(2),
+                        Cron.DayInterval(3));
         }
 
     }

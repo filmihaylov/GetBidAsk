@@ -35,7 +35,7 @@ namespace BidAskService
             // 
             // serviceProcessInstaller1
             // 
-            this.serviceProcessInstaller1.Account = ServiceAccount.LocalService;
+            this.serviceProcessInstaller1.Account = ServiceAccount.LocalSystem;
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
             // 

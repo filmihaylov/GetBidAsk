@@ -36,7 +36,7 @@ namespace BidAskCore.Scheduler
         {
             RecurringJob.AddOrUpdate(
                        () => this.StartDataCollection(),
-                       Cron.MinuteInterval(15));
+                       Cron.MinuteInterval(3));
         }
 
         public void StartDataCollection()
@@ -49,6 +49,7 @@ namespace BidAskCore.Scheduler
 
             try
             {
+                throw new Exception();
                 dto = rtScrapper.ExtractEURUSDData();
                 source = "RT";
             }

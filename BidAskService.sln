@@ -9,6 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BidAskTest", "BidAskTest\Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BidAskCore", "BidAskCore\BidAskCore.csproj", "{5B7ADDCA-6AEB-4F23-AD2C-8951A3299B91}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupBidAskService", "SetupBidAskService\SetupBidAskService.vdproj", "{7A3E223B-D8B9-4DD9-A4EE-2AF7F062D4CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FilesForInstallerCopy", "FilesForInstallerCopy", "{EFFD6F23-96A1-4FB1-B059-70B92E0605F1}"
+	ProjectSection(SolutionItems) = preProject
+		chromedriver.exe = chromedriver.exe
+		FilesToAdd.txt = FilesToAdd.txt
+		phantomjs.exe = phantomjs.exe
+		SQLite.Interop.dll = SQLite.Interop.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +51,10 @@ Global
 		{5B7ADDCA-6AEB-4F23-AD2C-8951A3299B91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5B7ADDCA-6AEB-4F23-AD2C-8951A3299B91}.Release|x86.ActiveCfg = Release|Any CPU
 		{5B7ADDCA-6AEB-4F23-AD2C-8951A3299B91}.Release|x86.Build.0 = Release|Any CPU
+		{7A3E223B-D8B9-4DD9-A4EE-2AF7F062D4CC}.Debug|Any CPU.ActiveCfg = Debug
+		{7A3E223B-D8B9-4DD9-A4EE-2AF7F062D4CC}.Debug|x86.ActiveCfg = Debug
+		{7A3E223B-D8B9-4DD9-A4EE-2AF7F062D4CC}.Release|Any CPU.ActiveCfg = Release
+		{7A3E223B-D8B9-4DD9-A4EE-2AF7F062D4CC}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

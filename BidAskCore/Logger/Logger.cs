@@ -13,7 +13,7 @@ namespace BidAskCore.Logger
         private Telegram.Telegram telegram;
         public Logger()
         {
-            this.pathToFile = "logFile";
+            this.pathToFile = "C:\\bidask\\logFile";
             this.createLoggingFile(this.pathToFile);
             try
             {

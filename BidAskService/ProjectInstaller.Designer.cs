@@ -1,4 +1,6 @@
-﻿namespace BidAskService
+﻿using System.ServiceProcess;
+
+namespace BidAskService
 {
     partial class ProjectInstaller
     {
@@ -33,6 +35,7 @@
             // 
             // serviceProcessInstaller1
             // 
+            this.serviceProcessInstaller1.Account = ServiceAccount.LocalService;
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
             // 

@@ -16,7 +16,7 @@ namespace BidAskService
         {
             #if DEBUG
             //While debugging this section is used.
-            Service1 myService = new Service1();
+            BidAskService myService = new BidAskService();
             myService.onDebug();
             System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
             #endif
@@ -24,7 +24,7 @@ namespace BidAskService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new BidAskService()
             };
             ServiceBase.Run(ServicesToRun);
         }

@@ -1,6 +1,6 @@
 ﻿namespace BidAskService
 {
-    partial class Service1
+    partial class BidAskService
     {
         /// <summary> 
         /// Required designer variable.

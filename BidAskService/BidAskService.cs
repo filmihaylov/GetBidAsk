@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace BidAskService
 {
-    public partial class Service1 : ServiceBase
+    public partial class BidAskService : ServiceBase
     {
         SchedulerWrapper sheduler;
         HttpServer server;
-        public Service1()
+        public BidAskService()
         {
             InitializeComponent();
             this.server = new HttpServer();

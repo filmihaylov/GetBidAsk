@@ -15,17 +15,32 @@ namespace BidAskCore.Logger
         {
             this.pathToFile = "logFile";
             this.createLoggingFile(this.pathToFile);
-            this.telegram = new Telegram.Telegram();
+            try
+            {
+
+                this.telegram = new Telegram.Telegram();
+            }
+            catch
+            {
+
+            }
         }
         public void Log(Exception ex)
         {
             var loggingMessage = ex.Message;
             using (StreamWriter sw = File.AppendText(this.pathToFile))
             {
-                sw.WriteLine(ex.Message);
+                sw.WriteLine(DateTime.Now.ToString() +"------"+ex.Message);
             }
 
+            try
+            {
                 this.telegram.sendMessage(ex.Message);
+            }
+            catch
+            {
+
+            }
 
         } 
 

@@ -5913,7 +5913,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_F41DC36BA53E48689FDC645CBC191C63"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:C:\\bidask"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
